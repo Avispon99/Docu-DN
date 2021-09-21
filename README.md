@@ -29,7 +29,6 @@ In this same file ```'./src/api/index.js';``` you will can find the Router mini 
 
 ```
 router.get('/', (req, res) => {
-  // redirects to api docs or send api info
   res.json({
     name: packageConfig.name,
     apiVersion: packageConfig.version,
