@@ -2,11 +2,11 @@
 
 # GET - /
 
-# Routing
+# Routing process
 
 MAIN INDEX
 
-File: index.js
+```File: index.js```
 
 In this file you will find the import (ES6) of the path like this
 ```
