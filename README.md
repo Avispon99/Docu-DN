@@ -13,7 +13,7 @@ In this file you will find the import (ES6) of the path like this
 import api from './src/api/index.js';
 ```
 
-and the use middleware method app.use() like this
+and the use middleware method ```app.use()``` like this
 ```
 app.use(api);
 app.use('/api', api);
