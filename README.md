@@ -10,7 +10,7 @@ File: index.js
 
 In this file you will find the import (ES6) of the path like this
 ```
-import api from './src/api/index.js';
+import api from ```'./src/api/index.js';```
 ```
 
 and the use middleware method ```app.use()``` like this
@@ -20,12 +20,12 @@ app.use('/api', api);
 app.use('/api/v1', api);
 ```
 
-In this way yo can see how is bringing the modules thata was exported throught the defaul export as you can see in the file './src/api/index.js'; in this way
+In this way yo can see how is bringing the modules thata was exported throught the defaul export as you can see in the file ```'./src/api/index.js';``` in this way
 ```
 export default router;
 ```
 
-In this same file you will can find the Router mini app method whit the endpoint "/" and their respective callback that redirects to api docs or send api info like this
+In this same file you will can find the Router mini app method whit the endpoint ```"/"``` and their respective callback that redirects to api docs or send api info like this
 
 ```
 router.get('/', (req, res) => {
