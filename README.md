@@ -5,11 +5,12 @@
 # Routing
 
 MAIN INDEX
+
 File: index.js
 
-'''import api from './src/api/index.js';'''
-
-
+```
+import api from './src/api/index.js';
+```
 
 
 
