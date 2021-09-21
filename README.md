@@ -8,7 +8,7 @@ MAIN INDEX
 
 File: index.js
 
-In this file you will find the import(ES6) of the path like this
+In this file you will find the import (ES6) of the path like this
 ```
 import api from './src/api/index.js';
 ```
