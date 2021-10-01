@@ -47,6 +47,7 @@ router.get('/', (req, res) => {
 
 # Response
 
+```
 In this endpoint you will get the summarized api info
 {
     name: "DevLand API",
@@ -56,3 +57,4 @@ In this endpoint you will get the summarized api info
     license: "MIT",
     licenseUrl: packageConfig.licenseUrl,
   }
+```
