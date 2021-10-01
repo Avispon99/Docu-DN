@@ -1,8 +1,30 @@
 # -- DOCUMENTATION ENDPOINTS --
 
-# GET - /
+# MAIN INDEX ENDPOINT  GET - /
+
+# Description
 
 ```localhost:3000/```
+This is the root endpoint of the entire API, and its objective is basically to give a summary basic information of the API itself in json format using as a means to extract some data from cave ```package.json``` through ```ES6 imports``` as you can see in these lines within ```./src/api/index.js```
+```
+import { createRequire } from 'module';
+const reqr = createRequire(import.meta.url);
+const packageConfig = reqr('../../package.json');
+```
+
+# Response
+
+In this endpoint you will get the summarized api info in json format.
+```
+{
+    name: "DevLand API",
+    apiVersion: 1.0.0,
+    repository: {"type": "git", "url": "git+https://github.com/DevLand-Network/devland-backend.git"},
+    description: "DevLand Main Backend Repo",
+    license: "MIT",
+    licenseUrl: packageConfig.licenseUrl,
+  }
+```
 
 # Routing process
 
@@ -44,17 +66,3 @@ router.get('/', (req, res) => {
 });
 ```
 
-
-# Response
-
-In this endpoint you will get the summarized api info
-```
-{
-    name: "DevLand API",
-    apiVersion: 1.0.0,
-    repository: {"type": "git", "url": "git+https://github.com/DevLand-Network/devland-backend.git"},
-    description: "DevLand Main Backend Repo",
-    license: "MIT",
-    licenseUrl: packageConfig.licenseUrl,
-  }
-```
