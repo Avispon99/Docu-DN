@@ -47,8 +47,8 @@ router.get('/', (req, res) => {
 
 # Response
 
-```
 In this endpoint you will get the summarized api info
+```
 {
     name: "DevLand API",
     apiVersion: 1.0.0,
