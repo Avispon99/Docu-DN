@@ -11,6 +11,7 @@ import { createRequire } from 'module';
 const reqr = createRequire(import.meta.url);
 const packageConfig = reqr('../../package.json');
 ```
+and set up with ```router.get('/', (req, res) =>{}``` in the same file.
 
 # Response
 
