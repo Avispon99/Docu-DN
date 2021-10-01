@@ -2,9 +2,13 @@
 
 # GET - /
 
+```localhost:3000/```
+
 # Routing process
 
 MAIN INDEX
+
+
 
 ```File: index.js```
 
@@ -40,3 +44,15 @@ router.get('/', (req, res) => {
 });
 ```
 
+
+# Response
+
+In this endpoint you will get the summarized api info
+{
+    name: "DevLand API",
+    apiVersion: 1.0.0,
+    repository: {"type": "git", "url": "git+https://github.com/DevLand-Network/devland-backend.git"},
+    description: "DevLand Main Backend Repo",
+    license: "MIT",
+    licenseUrl: packageConfig.licenseUrl,
+  }
