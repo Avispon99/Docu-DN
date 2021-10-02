@@ -1,68 +1,34 @@
-# -- DOCUMENTATION ENDPOINTS --
+# API USAGE
 
-# GET API INFORMATION ( GET -/ )
+This are the available security endpoints and the security levels of the DevLand API.
 
-# Description
+## Security legend:
+| Level | Description |
+| ----- | ----------- |
+| 0 | Doesn't require authentication |
+| 1 | Requires authentication and just the owner can access |
+| 2 | Requires authentication, owner can access but can be completely or partially restricted for other users |
+| 3 | Data is completely restricted for normal users (Just for internal usage) |
 
-This is the root endpoint of the entire API, and its objective is basically to give a summary basic information of the API itself in json format using as a means to extract some data from cave ```package.json``` through ```ES6 imports``` as you can see in these lines within ```./src/api/index.js``` like this:
-```
-import { createRequire } from 'module';
-const reqr = createRequire(import.meta.url);
-const packageConfig = reqr('../../package.json');
-```
-and set up within express method ```router.get('/', (req, res) =>{}``` in the same file.
+## Endpoints
 
-# Response
+| Method | Endpoint | Description | Secure |
+| ------------- | ------------- | ----- | ------ |
+| GET  | / | Get API information | 0 |
+| GET | /auth | Generate stellar login for user authentication | 0 |
+| GET | /auth/login | Login an existent account | 0 |
+| GET  | /users | Get whole list of users | 3 |
+| GET  | /users/profile | Gets user profile by session | 1 |
+| GET  | /users/:shortID | Get user by its id | 2 |
+| GET  | /users/:shortID/posts | Get the whole list of posts for this user | 2 |
+| GET  | /users/:shortID/posts/:postID | Get post by its id or slug for this user | 0 |
+| POST | /users/:shortID/posts | Create a new post for this user | 1 |
+| POST | /auth | Challenge validation and session creation with JWT | 0 |
+| POST | /auth/register | Create a new account | 0 |
+| PUT | /users/:shortID/posts/:postID | Update Post by its id or slug for this user | 1 |
+| DELETE | /users/:shortID/posts/:postID | Delete Post by its id or slug for this user | 1 |
 
-In this endpoint ```localhost:3000/``` you will get the summarized api info in json format.
-```
-{
-    name: "DevLand API",
-    apiVersion: 1.0.0,
-    repository: {"type": "git", "url": "git+https://github.com/DevLand-Network/devland-backend.git"},
-    description: "DevLand Main Backend Repo",
-    license: "MIT",
-    licenseUrl: packageConfig.licenseUrl,
-  }
-```
+## Security reference diagram
 
-# Routing process
-
-MAIN INDEX
-
-
-
-```File: index.js```
-
-In this file you will find the import (ES6) of the path like this
-```
-import api from './src/api/index.js';
-```
-
-and the use middleware method ```app.use()``` like this
-```
-app.use(api);
-app.use('/api', api);
-app.use('/api/v1', api);
-```
-
-In this way yo can see how is bringing the modules thata was exported throught the defaul export as you can see in the file ```'./src/api/index.js';``` in this way
-```
-export default router;
-```
-
-In this same file ```'./src/api/index.js';``` you will can find the Router mini app method whit the endpoint ```"/"``` and their respective callback that redirects to api docs or send api info like this
-
-```
-router.get('/', (req, res) => {
-  res.json({
-    name: packageConfig.name,
-    apiVersion: packageConfig.version,
-    repository: packageConfig.repository,
-    description: packageConfig.description,
-    license: packageConfig.license,
-    licenseUrl: packageConfig.licenseUrl,
-  });
-});
-```
+![diagram](https://i.imgur.com/xBhUVJN.png)
 
