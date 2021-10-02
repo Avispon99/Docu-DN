@@ -1,6 +1,6 @@
 # -- DOCUMENTATION ENDPOINTS --
 
-# MAIN INDEX ENDPOINT  GET - /
+# GET API INFORMATION ( GET -/ )
 
 # Description
 
