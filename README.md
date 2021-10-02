@@ -4,18 +4,17 @@
 
 # Description
 
-```localhost:3000/```
-This is the root endpoint of the entire API, and its objective is basically to give a summary basic information of the API itself in json format using as a means to extract some data from cave ```package.json``` through ```ES6 imports``` as you can see in these lines within ```./src/api/index.js```
+This is the root endpoint of the entire API, and its objective is basically to give a summary basic information of the API itself in json format using as a means to extract some data from cave ```package.json``` through ```ES6 imports``` as you can see in these lines within ```./src/api/index.js``` like this:
 ```
 import { createRequire } from 'module';
 const reqr = createRequire(import.meta.url);
 const packageConfig = reqr('../../package.json');
 ```
-and set up with ```router.get('/', (req, res) =>{}``` in the same file.
+and set up within express method ```router.get('/', (req, res) =>{}``` in the same file.
 
 # Response
 
-In this endpoint you will get the summarized api info in json format.
+In this endpoint ```localhost:3000/``` you will get the summarized api info in json format.
 ```
 {
     name: "DevLand API",
